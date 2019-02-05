@@ -1,0 +1,38 @@
+\name{asert}
+\alias{asert}
+\title{Provides a graphical user interface to resolve entities in a data frame.
+}
+\description{
+Consists of a single function, asert, which non-recursively asks users to compare each
+entity in a data frame, along with their attributes, to all the other entities indexed in the data frame.  The result is a vector as long as the input data.frame.
+}
+\usage{
+asert(x)
+}
+%- maybe also 'usage' for other objects documented here.
+\arguments{
+  \item{x}{
+ a data frame containing entities. See details.
+}
+}
+\details{
+The asert function assumes that the first column of the input data frame \code{x} contains entity names followed by k columns of attributes. Note that the current window support is limited to about 180 characters of concatenated attributes.
+}
+\value{
+A list of indices on the order of the input data frame matching the user selections.
+}
+\note{While the non-recursive iterator is protective against false-negative assignment as all entities in the support set must be reached, the support set is constant and therefore false-positives are not as strongly guarded against.  However, false-positives made earlier in the series may be corrected by correctly assigning them later on as only the latest state of the variable selection is retreived from memory.  Spot checking the final list of indices is strongly encouraged. }
+\author{
+Christopher Steven Marcum
+}
+
+\examples{
+
+#Generate example data
+famfile<-do.call("rbind",replicate(4,c("Betsy Balihoo","F","49","Grandmother"),simplify=FALSE))
+famfile[2,1]<-"Georgette Balihoo"; famfile[2,3]<-"88"
+famfile[3,1]<-"Dave Balihoo"; famfile[3,2]<-"M"
+
+asert(famfile)
+
+}

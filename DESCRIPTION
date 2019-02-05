@@ -1,0 +1,11 @@
+Package: asert
+Type: Package
+Title: A Simple Entity Resolution Tool
+Version: 0.1.5
+Date: 2019-01-29
+Author: Christopher Steven Marcum
+Maintainer: Christopher Steven Marcum <chris.marcum@nih.gov>
+Description: Consists of a single function, asert, which non-recursively asks users to compare each entity in a data frame, along with their attributes, to all the other entities indexed in the data frame. 
+License: GPL-3
+Depends: tcltk
+Roxygen: list(markdown = TRUE)
